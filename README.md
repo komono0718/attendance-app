@@ -106,12 +106,11 @@ php artisan storage:link
 	•	Laravel Fortify（認証）
 
 # URL
-	•	開発環境
-http://localhost/
-	•	ログイン
-http://localhost/login
-	•	phpMyAdmin
-http://localhost:8080/
+
+- 開発環境：http://localhost/
+- phpMyAdmin：http://localhost:8088/
+- ログイン：http://localhost/login
+
 
 # 機能一覧
 
