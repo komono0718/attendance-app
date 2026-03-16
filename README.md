@@ -164,3 +164,5 @@ email: user2@test.com
 password: password
 
 # ER図
+
+![ER図](attendance_er.png)
