@@ -140,16 +140,16 @@ http://localhost:8080/
 	•	CSV出力
 
 # テーブル設計
-テーブル
-説明
-users
-ユーザー
-attendances
-勤怠情報
-break_times
-休憩時間
-attendance_correction_requests
-勤怠修正申請
+
+| テーブル | 説明 |
+|---|---|
+| users | ユーザー |
+| attendances | 勤怠情報 |
+| break_times | 休憩時間 |
+| category_item | 商品カテゴリ |
+| attendance_correction_requests | 勤怠修正申請 |
+
+
 
 ## ログイン情報
 
