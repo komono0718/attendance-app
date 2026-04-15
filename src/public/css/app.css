@@ -662,7 +662,7 @@ a {
 /* テキスト表示用 */
 .time-text {
     display: inline-block;
-    min-width: 80px;
+    min-width: 100px;
     letter-spacing: 3px;
 }
 
@@ -697,5 +697,5 @@ textarea {
 }
 
 .time-end {
-    margin-left: 12px;
+    margin-left: 55px;
 }
