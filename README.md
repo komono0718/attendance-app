@@ -141,4 +141,4 @@ password: password
 
 # ER図
 
-![ER図](attendance_er.png)
+![ER図](attendance_er_2.png)
