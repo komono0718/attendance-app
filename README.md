@@ -75,8 +75,8 @@ php artisan storage:link
 ```
 
 # 使用技術
-    •	PHP 8.1
-    •	Laravel 10
+    •	PHP 8.x
+    •	Laravel 10.x
     •	MySQL
     •	Docker
     •	Laravel Fortify（認証）
