@@ -1,39 +1,68 @@
-<h1>修正申請一覧（管理者）</h1>
+@extends('layouts.app')
 
-<table border="1">
+@section('content')
+    <div class="attendance-list-container">
 
-    <tr>
-        <th>ID</th>
-        <th>ユーザー</th>
-        <th>出勤修正</th>
-        <th>退勤修正</th>
-        <th>備考</th>
-        <th>状態</th>
-        <th>操作</th>
-    </tr>
+        <div class="page-title-left">申請一覧</div>
 
-    @foreach ($requests as $request)
-        <tr>
+        <!-- タブ -->
+        <div class="request-tabs">
+            <a href="?status=pending" class="tab {{ request('status') != 'approved' ? 'active' : '' }}">承認待ち</a>
+            <a href="?status=approved" class="tab {{ request('status') == 'approved' ? 'active' : '' }}">承認済み</a>
+        </div>
 
-            <td>{{ $request->id }}</td>
-            <td>{{ $request->user_id }}</td>
-            <td>{{ $request->requested_clock_in }}</td>
-            <td>{{ $request->requested_clock_out }}</td>
-            <td>{{ $request->note }}</td>
-            <td>{{ $request->status }}</td>
+        <!-- テーブル -->
+        <div class="request-card">
+            <table class="request-table">
+                <thead>
+                    <tr>
+                        <th>状態</th>
+                        <th>名前</th>
+                        <th>対象日時</th>
+                        <th>申請理由</th>
+                        <th>申請日時</th>
+                        <th>詳細</th>
+                    </tr>
+                </thead>
 
-            <td>
+                <tbody>
 
-                @if ($request->status == 'pending')
-                    <form method="POST" action="/admin/stamp_correction_request/approve/{{ $request->id }}">
-                        @csrf
-                        <button>承認</button>
-                    </form>
-                @endif
+                    @if (request('status') == 'approved')
+                        @foreach ($approved as $request)
+                            <tr>
+                                <td>承認済み</td>
+                                <td>{{ $request->attendance->user->name ?? '-' }}</td>
+                                <td>{{ \Carbon\Carbon::parse($request->attendance->work_date)->format('Y/m/d') }}</td>
+                                <td>{{ $request->note }}</td>
+                                <td>{{ $request->created_at->format('Y/m/d') }}</td>
+                                <td>
+                                    <a href="/admin/stamp_correction_request/detail/{{ $request->id }}" class="detail-link">
+                                        詳細
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @else
+                        @foreach ($pending as $request)
+                            <tr>
+                                <td>承認待ち</td>
+                                <td>{{ $request->attendance->user->name ?? '-' }}</td>
+                                <td>{{ \Carbon\Carbon::parse($request->attendance->work_date)->format('Y/m/d') }}</td>
+                                <td>{{ $request->note }}</td>
+                                <td>{{ $request->created_at->format('Y/m/d') }}</td>
+                                <td>
+                                    <a href="/admin/stamp_correction_request/detail/{{ $request->id }}"
+                                        class="detail-link">
+                                        詳細
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
 
-            </td>
+                </tbody>
+            </table>
+        </div>
 
-        </tr>
-    @endforeach
-
-</table>
+    </div>
+@endsection

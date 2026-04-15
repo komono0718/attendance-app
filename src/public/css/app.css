@@ -1,0 +1,701 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #e4e1e1e0;
+}
+
+body.auth-page {
+    background: #fff;
+}
+
+/* header */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #000;
+    padding: 12px 40px;
+}
+
+.logo {
+    height: 26px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.header-right a {
+    color: white;
+    margin-left: 25px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.header-right a:hover {
+    opacity: 0.7;
+}
+
+.header-right button {
+    margin-left: 25px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* main */
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 85vh;
+}
+
+/* auth */
+
+.auth-container {
+    width: 450px;
+    padding: 50px;
+    border-radius: 10px;
+}
+
+.auth-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.form-group input {
+    width: 100%;
+    height: 42px;
+    padding: 0 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.auth-button-outline {
+    width: 100%;
+    padding: 12px;
+    background: rgb(193, 192, 192);
+    color: black;
+    border: 1px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.auth-button {
+    width: 100%;
+    padding: 12px;
+    background: #000;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.auth-button:hover {
+    opacity: 0.8;
+}
+
+.auth-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.auth-link a {
+    color: #0073ff;
+    text-decoration: none;
+}
+
+.auth-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 12px;
+    /* ← 10→12 */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.auth-message {
+    text-align: center;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.auth-button-wrap {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.auth-success {
+    text-align: center;
+    color: green;
+    margin-bottom: 10px;
+}
+
+.auth-resend {
+    display: block;
+    margin: 50px auto 0;
+    background: none;
+    border: none;
+    color: #007bff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* attendance */
+
+.attendance-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+}
+
+.attendance-card {
+    text-align: center;
+}
+
+.attendance-status {
+    background: #a3a2a2c0;
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.attendance-date {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.attendance-time {
+    font-size: 64px;
+    font-weight: 700;
+    margin: 20px 0;
+}
+
+.attendance-button {
+    width: 300px;
+    max-width: 60%;
+    padding: 12px;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 22px;
+    letter-spacing: 4px;
+    display: block;
+    margin-top: 40px;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 横並び */
+.attendance-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 40px;
+}
+
+/* 共通 */
+.btn-black,
+.btn-white {
+    width: 160px;
+    padding: 10px 0;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    border-radius: 14px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-black {
+    background: #000;
+    color: #fff;
+    border: none;
+}
+
+.btn-white {
+    background: #fff;
+    color: #000;
+    border: none;
+}
+
+/* attendance list */
+
+.attendance-list-container {
+    width: 900px;
+    margin: 0 auto;
+}
+
+.list-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    color: #777;
+}
+
+.attendance-table th {
+    background: #fff;
+    padding: 15px;
+    font-size: 16px;
+}
+
+.attendance-table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.attendance-table td:first-child {
+    font-weight: bold;
+}
+
+.attendance-table tr:last-child td {
+    border-bottom: none;
+}
+
+.attendance-table thead tr {
+    border-bottom: 2px solid #ccc;
+}
+
+.detail-link {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* page */
+
+.page-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* detail */
+
+.attendance-detail-container {
+    width: 800px;
+    margin: 0 auto;
+}
+
+/* タイトル（左＋縦線） */
+.page-title-left {
+    font-size: 26px;
+    font-weight: bold;
+    padding-left: 14px;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* 縦線 */
+.page-title-left::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 5px;
+    /* ← 少し太く */
+    height: 70%;
+    /* ← 少し短く */
+
+    background: #000;
+}
+
+.detail-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.detail-table th {
+    width: 200px;
+    text-align: left;
+    padding: 15px;
+    background: #f3f3f3;
+}
+
+.detail-table td {
+    padding: 15px;
+}
+
+.break-row {
+    margin-bottom: 10px;
+}
+
+.note-area {
+    width: 100%;
+    height: 80px;
+}
+
+.detail-button-area {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* テキスト用の箱 */
+.field-text {
+    width: 280px;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.detail-row input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.break-item {
+    margin-bottom: 10px;
+}
+
+.break-label {
+    font-size: 13px;
+    color: #999;
+    margin-right: 10px;
+}
+
+.date-fix {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    white-space: nowrap;
+    margin-left: 22px;
+}
+
+/* 左 */
+.date-fix span:first-child {
+    text-align: center;
+    letter-spacing: 3px;
+    margin-right: 60px;
+}
+
+/* 真ん中 */
+.date-fix .dummy {
+    width: 40px;
+    visibility: hidden;
+}
+
+/* 右 */
+.date-fix span:last-child {
+    min-width: 90px;
+    text-align: left;
+    letter-spacing: 3px;
+}
+
+.time-range {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.time-range span {
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+}
+
+.time-range input {
+    width: 100px;
+    padding: 4px;
+    font-size: 14px;
+}
+
+input[type="time"] {
+    width: 100px;
+    padding: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+input[type="time"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+input[type="time"] {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+/* Firefox */
+input[type="time"] {
+    appearance: none;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    position: absolute;
+    right: 0;
+}
+
+.pending-message {
+    color: #ff4d4d;
+    text-align: right;
+    font-size: 14px;
+}
+
+/* タブ */
+.request-tabs {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 60px;
+    border-bottom: 2px solid #000;
+    text-decoration: none;
+}
+
+.tab {
+    padding: 10px 0;
+    cursor: pointer;
+    color: #666;
+    text-decoration: none;
+    margin-left: 30px;
+}
+
+.tab.active {
+    font-weight: bold;
+    color: #000;
+}
+
+/* カード */
+.request-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* テーブル */
+.request-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.request-table th,
+.request-table td {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.request-table th {
+    color: #888;
+    font-weight: normal;
+}
+
+.request-table td {
+    color: #333;
+}
+
+/* 詳細リンク */
+.detail-link {
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.error-box {
+    color: red;
+    margin: 20px 0;
+    text-align: right;
+}
+
+.error-text {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.date-nav-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.nav-btn {
+    color: #777;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.date-center {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.csv-button {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    padding: 7px 26px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.approve-button {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 2px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+}
+
+.approve-button.done {
+    background: #1413137d;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: default;
+    opacity: 1;
+}
+
+a {
+    text-decoration: none;
+}
+
+.detail-card {
+    width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.detail-row {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    align-items: center;
+    padding: 24px 30px;
+    border-bottom: 2px solid #ddd;
+}
+
+/* ラベル */
+.label {
+    font-weight: bold;
+    color: #777;
+}
+
+.value {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    padding-left: 80px;
+    margin: 0 30px;
+}
+
+.time-range {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* input */
+.time-range input {
+    width: 100px;
+    text-align: center;
+}
+
+/* テキスト表示用 */
+.time-text {
+    display: inline-block;
+    min-width: 80px;
+    letter-spacing: 3px;
+}
+
+/* 備考 */
+textarea {
+    width: 58%;
+    height: 61px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    resize: none;
+}
+
+/* ボタン */
+.detail-footer-out {
+    width: 800px;
+    margin: 20px auto;
+    text-align: right;
+}
+
+.detail-button {
+    background: #000;
+    color: #fff;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+}
+
+.name-value {
+    justify-content: flex-start !important;
+    padding-left: 110px;
+}
+
+.time-end {
+    margin-left: 12px;
+}

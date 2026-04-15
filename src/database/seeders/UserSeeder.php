@@ -14,7 +14,8 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Admin',
             'email' => 'admin@test.com',
-            'password' => Hash::make('password'),
+            'password' => bcrypt('password'),
+            'is_admin' => true,
         ]);
 
         // 一般ユーザー

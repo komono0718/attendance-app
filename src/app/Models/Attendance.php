@@ -17,8 +17,18 @@ class Attendance extends Model
         'note'
     ];
 
+    protected $casts = [
+        'clock_in' => 'datetime',
+        'clock_out' => 'datetime',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function breakTimes()
+    {
+        return $this->hasMany(\App\Models\BreakTime::class);
     }
 }

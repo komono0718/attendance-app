@@ -29,9 +29,15 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
-    }
+        // ←これ追加（超重要）
+        $request->session()->forget('url.intended');
 
+        if (auth()->user()->is_admin) {
+            return redirect('/admin/attendance/list');
+        }
+
+        return redirect('/attendance');
+    }
     /**
      * Destroy an authenticated session.
      */

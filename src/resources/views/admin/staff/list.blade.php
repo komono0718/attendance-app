@@ -1,29 +1,41 @@
-<h1>スタッフ一覧</h1>
+@extends('layouts.app')
 
-<table border="1">
+@section('content')
+    <div class="attendance-list-container">
 
-    <tr>
-        <th>名前</th>
-        <th>Email</th>
-        <th>CSV</th>
-    </tr>
+        <div class="page-title-left">スタッフ一覧</div>
 
-    @foreach ($users as $user)
-        <tr>
+        <table class="attendance-table">
 
-            <td>{{ $user->name }}</td>
+            <thead>
+                <tr>
+                    <th>名前</th>
+                    <th>メールアドレス</th>
+                    <th>詳細</th>
+                </tr>
+            </thead>
 
-            <td>{{ $user->email }}</td>
+            <tbody>
 
-            <td>
+                @foreach ($users as $user)
+                    <tr>
 
-                <a href="/admin/attendance/csv/{{ $user->id }}">
-                    CSV出力
-                </a>
+                        <td>{{ $user->name }}</td>
 
-            </td>
+                        <td>{{ $user->email }}</td>
 
-        </tr>
-    @endforeach
+                        <td>
+                            <a href="/admin/attendance/staff/{{ $user->id }}" class="detail-link">
+                                詳細
+                            </a>
+                        </td>
 
-</table>
+                    </tr>
+                @endforeach
+
+            </tbody>
+
+        </table>
+
+    </div>
+@endsection

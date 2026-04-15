@@ -1,39 +1,54 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="ja">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta charset="UTF-8">
+    <title>勤怠管理</title>
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="stylesheet" href="/css/app.css">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-    <!-- Scripts -->
-    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 </head>
 
-<body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100">
-        @include('layouts.navigation')
+<body
+    class="{{ request()->is('login') || request()->is('register') || request()->is('admin/login') || request()->is('email/verify*') ? 'auth-page' : '' }}">
 
-        <!-- Page Heading -->
-        @if (isset($header))
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
+    <header class="header">
+
+        <div class="header-left">
+            <img src="{{ asset('images/logo.png') }}" class="logo">
+        </div>
+
+        @if (Auth::check())
+
+            <div class="header-right">
+
+                @if (Auth::user()->is_admin)
+                    <a href="{{ url('/admin/attendance/list') }}">勤怠一覧</a>
+                    <a href="{{ url('/admin/staff/list') }}">スタッフ一覧</a>
+                    <a href="{{ url('/admin/stamp_correction_request/list') }}">申請一覧</a>
+                @else
+                    <a href="{{ url('/attendance') }}">勤怠</a>
+                    <a href="{{ url('/attendance/list') }}">勤怠一覧</a>
+                    <a href="{{ url('/stamp_correction_request/list') }}">申請</a>
+                @endif
+
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit">ログアウト</button>
+                </form>
+
+            </div>
+
         @endif
 
-        <!-- Page Content -->
-        <main>
-            {{ $slot }}
-        </main>
-    </div>
+    </header>
+
+    <main>
+
+        @yield('content')
+
+    </main>
+
 </body>
 
 </html>
