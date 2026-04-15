@@ -6,30 +6,6 @@
 
 ---
 
-## 機能一覧
-
-### 一般ユーザー
-- 会員登録
-- ログイン / ログアウト
-- 出勤打刻
-- 休憩入 / 休憩戻
-- 退勤打刻
-- 勤怠一覧表示
-- 勤怠詳細表示
-- 勤怠修正申請
-- 申請一覧表示
-
-### 管理者
-- 管理者ログイン / ログアウト
-- 日次勤怠一覧表示
-- 勤怠詳細確認 / 修正
-- スタッフ一覧表示
-- スタッフ別勤怠一覧表示
-- 修正申請承認
-- CSV出力
-
----
-
 ## 使用技術
 
 - PHP 8.1
@@ -110,6 +86,7 @@ php artisan storage:link
 - 開発環境：http://localhost/
 - phpMyAdmin：http://localhost:8080/
 - ログイン：http://localhost/login
+- 管理者ログイン：http://localhost/admin/login
 
 
 # 機能一覧
@@ -145,8 +122,7 @@ php artisan storage:link
 | users | ユーザー |
 | attendances | 勤怠情報 |
 | break_times | 休憩時間 |
-| category_item | 商品カテゴリ |
-| attendance_correction_requests | 勤怠修正申請 |
+| stamp_correction_requests | 勤怠修正申請 |
 
 
 
